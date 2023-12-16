@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 7.4.2.3 (Linux)"/>
+	<meta name="author" content="Вадим Бондаренко"/>
+	<meta name="created" content="2020-09-20T19:17:00"/>
+	<meta name="changedby" content="Вадим Бондаренко"/>
+	<meta name="changed" content="2023-12-16T16:23:00"/>
+	<meta name="AppVersion" content="16.0000"/>
+	<style type="text/css">
+		@page { size: 8.27in 11.69in; margin-left: 1.18in; margin-right: 0.59in; margin-top: 0.79in; margin-bottom: 0.79in }
+		p { line-height: 115%; text-align: left; orphans: 2; widows: 2; margin-bottom: 0.1in; direction: ltr; background: transparent }
+		p.western { font-family: "Times New Roman", serif; font-size: 10pt; so-language: en-US }
+		p.cjk { font-family: "Times New Roman"; font-size: 10pt; so-language: ru-RU }
+		p.ctl { font-family: "Times New Roman"; font-size: 10pt }
+		a:link { color: #0563c1; text-decoration: underline }
+	</style>
+</head>
+<body lang="ru-RU" link="#0563c1" vlink="#800000" dir="ltr"><p align="left" style="line-height: 100%; margin-top: 0.08in; margin-bottom: 0.17in">
+<font size="4" style="font-size: 14pt"><font size="2" style="font-size: 10pt"><span style="font-weight: normal">УДК
+004.42</span></font></font></p>
+<p lang="en-US" class="western" align="center" style="line-height: 100%; margin-bottom: 0in">
+<font size="4" style="font-size: 14pt"><span lang="ru-RU"><b>Разработка
+приложения для распознавания речи</b></span></font></p>
+<p class="western" align="center" style="line-height: 100%; margin-bottom: 0in">
+<br/>
+
+</p>
+<p align="center" style="line-height: 100%; margin-top: 0.03in; margin-bottom: 0in">
+<b>Я.В.</b><sup><b> </b></sup><b>Баляба</b><sup><b>*1</b></sup><b>,
+О.В. Рычка</b><sup><b>*2</b></sup></p>
+<p align="center" style="line-height: 100%; margin-top: 0.03in; margin-bottom: 0in">
+<sup><font size="3" style="font-size: 13pt"><i>*1 </i></font></sup>студент,
+Донецкий национальный технический
+университет,</p>
+<p align="center" style="line-height: 100%; margin-top: 0.03in; margin-bottom: 0in">
+<sup><font size="3" style="font-size: 13pt"><i>*2 </i></font></sup>ст.
+преподаватель, Донецкий национальный
+технический университет,</p>
+<p lang="de-DE" align="center" style="line-height: 100%; margin-bottom: 0in">
+olga_rychka@mail.ru</p>
+<p align="center" style="line-height: 100%; margin-top: 0.03in; margin-bottom: 0in">
+<br/>
+
+</p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; margin-left: 0.49in; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU"><i><b>Баляба Я.В., Рычка О.В.
+Разработка приложения для распознавания
+речи.</b></i></span><span lang="ru-RU"><i> Статья посвящена
+технологии распознавания речи в реальном
+времени и ее применению в различных
+сферах жизни и деятельности. В статье
+рассмотрены основные подходы, методы
+и факторы, которые влияют на качество
+и скорость распознавания речи. В статье
+также показано, как можно создать
+тестовое приложение для распознавания
+речи на основе Microsoft Speech API, которое
+позволяет пользователю диктовать
+команды на русском языке и видеть их
+текстовое представление на экране. В
+статье описаны основные функциональные
+требования к приложению.</i></span><span lang="ru-RU">
+</span><span lang="ru-RU"><i>В статье также рассмотрены
+способы улучшения качества распознавания
+речи с помощью модели адаптации, которая
+позволяет увеличить вероятность
+распознавания определенных слов или
+фраз. Также приведён пример интерфейса
+системы.</i></span></p>
+<p class="western" align="justify" style="line-height: 100%; margin-left: 0.49in; text-indent: 0.49in; margin-bottom: 0in">
+<br/>
+
+</p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; margin-left: 0.49in; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU"><i><b>Ключевые слова:</b></i></span><span lang="ru-RU"><i>
+распознавание речи, нейронные сети,
+скрытые марковские модели.</i></span></p>
+<p class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<br/>
+
+</p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font face="Arial, serif"><span lang="ru-RU"><i><b>Введение</b></i></span></font></p>
+<p class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<br/>
+
+</p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Распознавание речи в реальном
+времени - это процесс преобразования
+звукового сигнала в текстовый формат
+по мере его поступления. Это позволяет
+общаться с компьютерами, голосовыми
+помощниками, переводчиками и другими
+приложениями с помощью естественного
+языка. Распознавание речи в реальном
+времени имеет множество преимуществ
+для разных категорий пользователей:</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Для людей с ограниченными
+возможностями распознавание речи в
+реальном времени может облегчить доступ
+к информации, образованию и развлечениям.
+Например, слабослышащие люди могут
+использовать распознавание речи для
+получения субтитров к фильмам или
+телефонным разговорам. Слепые люди
+могут использовать распознавание речи
+для управления своими устройствами или
+чтения текста.</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Для бизнеса распознавание
+речи в реальном времени может повысить
+эффективность, качество работы и
+удовлетворенность клиентов. Например,
+колл-центры могут использовать
+распознавание речи для автоматизации
+обработки звонков, анализа настроения
+клиентов и контроля качества обслуживания.
+Маркетологи могут использовать
+распознавание речи для создания
+уникального голоса бренда и персонализации
+коммуникации с потребителями.</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Для образования и науки
+распознавание речи в реальном времени
+может способствовать развитию навыков
+и знаний. Например, студенты могут
+использовать распознавание речи для
+диктовки лекций, записи заметок или
+изучения иностранных языков. Ученые
+могут использовать распознавание речи
+для транскрибирования интервью,
+экспериментов или конференций.</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Распознавание речи в реальном
+времени основано на сложных алгоритмах
+машинного обучения, которые анализируют
+звуковой сигнал на разных уровнях: от
+отдельных звуков до слов и фраз. Существуют
+разные подходы к распознаванию речи,
+такие как скрытые марковские модели,
+нейронные сети или комбинации этих
+методов. Для улучшения качества
+распознавания речи необходимо учитывать
+разные факторы, такие как шум, акцент,
+скорость или контекст говорящего.</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Целью работы является
+разработка доступной и удобной системы
+для распознавания речи.</span></p>
+<p class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<br/>
+
+</p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font face="Arial, serif"><span lang="ru-RU"><i><b>Обзор
+существующих систем распознавания речи</b></i></span></font></p>
+<p class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<br/>
+
+</p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">В настоящее время на рынке
+существует множество систем распознавания
+речи, которые предлагают различные
+функции и возможности для пользователей.
+Некоторые из них являются общего
+назначения, а некоторые специализируются
+на определенных областях или языках. В
+этом разделе мы рассмотрим некоторые
+из наиболее популярных и известных
+систем распознавания речи и сравним их
+по следующим критериям: точность,
+скорость, удобство использования,
+стоимость и доступность. В таблице 1
+приведём характеристику каждой системы.</span></p>
+<p class="western" align="right" style="line-height: 100%; margin-bottom: 0in">
+<br/>
+
+</p>
+<p class="western" align="right" style="line-height: 100%; margin-bottom: 0in">
+<br/>
+
+</p>
+<p class="western" align="right" style="line-height: 100%; margin-bottom: 0in">
+<br/>
+
+</p>
+<p lang="en-US" class="western" align="right" style="line-height: 100%; margin-bottom: 0in">
+<span lang="ru-RU">Таблица 1 – Сравнительная
+характеристика</span></p>
+<table width="623" cellpadding="7" cellspacing="0">
+	<col width="87"/>
+
+	<col width="84"/>
+
+	<col width="84"/>
+
+	<col width="84"/>
+
+	<col width="114"/>
+
+	<col width="83"/>
+
+	<tr valign="top">
+		<td width="87" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Система</span></p>
+		</td>
+		<td width="84" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Google Speech-to-Text</span></p>
+		</td>
+		<td width="84" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Microsoft Speech Services</span></p>
+		</td>
+		<td width="84" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			IBM Watson Speech to Text</p>
+		</td>
+		<td width="114" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Яндекс.Распознавание</span></p>
+		</td>
+		<td width="83" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Amazon Transcribe</span></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="87" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Количество поддерживаемых
+			языков и диалектов</span></p>
+		</td>
+		<td width="84" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Более 120</span></p>
+		</td>
+		<td width="84" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Более 80</span></p>
+		</td>
+		<td width="84" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Более 10</span></p>
+		</td>
+		<td width="114" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">русский, английский, турецкий
+			и украинский</span></p>
+		</td>
+		<td width="83" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Более 30</span></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="87" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			Используемая технология</p>
+		</td>
+		<td width="84" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			Нейронные сети</p>
+		</td>
+		<td width="84" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			Нейронные сети</p>
+		</td>
+		<td width="84" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			Нейронные сети</p>
+		</td>
+		<td width="114" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			Нейронные сети</p>
+		</td>
+		<td width="83" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			Нейронные сети</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="87" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			Учет контекста и семантики</p>
+		</td>
+		<td width="84" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Да</span></p>
+		</td>
+		<td width="84" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Да</span></p>
+		</td>
+		<td width="84" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Да</span></p>
+		</td>
+		<td width="114" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Да</span></p>
+		</td>
+		<td width="83" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Да</span></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="87" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			Распознавание эмоций и тональности</p>
+		</td>
+		<td width="84" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Нет</span></p>
+		</td>
+		<td width="84" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Да</span></p>
+		</td>
+		<td width="84" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Нет</span></p>
+		</td>
+		<td width="114" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Нет</span></p>
+		</td>
+		<td width="83" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Нет</span></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="87" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Распознавание специфических
+			терминов и жаргона</span></p>
+		</td>
+		<td width="84" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Нет</span></p>
+		</td>
+		<td width="84" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Нет</span></p>
+		</td>
+		<td width="84" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Да</span></p>
+		</td>
+		<td width="114" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Нет</span></p>
+		</td>
+		<td width="83" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Да</span></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="87" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			Режимы работы</p>
+		</td>
+		<td width="84" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Реального времени или с
+			предварительно записанными файлами</span></p>
+		</td>
+		<td width="84" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Реального времени или с
+			предварительно записанными файлами</span></p>
+		</td>
+		<td width="84" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Реального времени или с
+			предварительно записанными файлами</span></p>
+		</td>
+		<td width="114" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Реального времени или с
+			предварительно записанными файлами</span></p>
+		</td>
+		<td width="83" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Реального времени или с
+			предварительно записанными файлами</span></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="87" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Опции для персонализации
+			настройки	</span></p>
+		</td>
+		<td width="84" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Различные</span></p>
+		</td>
+		<td width="84" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Различные</span></p>
+		</td>
+		<td width="84" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Различные</span></p>
+		</td>
+		<td width="114" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Различные</span></p>
+		</td>
+		<td width="83" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Различные</span></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="87" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Доступность	</span></p>
+		</td>
+		<td width="84" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Облачный сервис или локальное
+			приложение</span></p>
+		</td>
+		<td width="84" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Облачный сервис или локальное
+			приложение</span></p>
+		</td>
+		<td width="84" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Облачный сервис или локальное
+			приложение</span></p>
+		</td>
+		<td width="114" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Облачный сервис или локальное
+			приложение</span></p>
+		</td>
+		<td width="83" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Облачный сервис или локальное
+			приложение</span></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="87" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Стоимость</span></p>
+		</td>
+		<td width="84" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Бесплатна для небольших
+			объемов данных, но требует оплаты за
+			большие объемы или дополнительные
+			функции[1]</span></p>
+		</td>
+		<td width="84" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Бесплатна для небольших
+			объемов данных, но требует оплаты за
+			большие объемы или дополнительные
+			функции[2]</span></p>
+		</td>
+		<td width="84" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Бесплатна для небольших
+			объемов данных, но требует оплаты за
+			большие объемы или дополнительные
+			функции[3]</span></p>
+		</td>
+		<td width="114" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Бесплатна для небольших
+			объемов данных, но требует оплаты за
+			большие объемы или дополнительные
+			функции</span></p>
+		</td>
+		<td width="83" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" class="western" align="justify" style="orphans: 2; widows: 2">
+			<span lang="ru-RU">Бесплатна для небольших
+			объемов данных, но требует оплаты за
+			большие объемы или дополнительные
+			функции</span></p>
+		</td>
+	</tr>
+</table>
+<p class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<br/>
+
+</p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Из сравнения этих систем
+распознавания речи можно сделать
+следующие выводы:</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Все системы используют
+нейронные сети для анализа звукового
+сигнала и преобразования его в текст,
+что обеспечивает высокую точность и
+скорость распознавания.</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Все системы учитывают контекст
+и семантику речи, что повышает их
+понимание и адаптацию к разным ситуациям
+и темам.</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Все системы поддерживают
+разные языки и диалекты, что расширяет
+их применимость к разным группам
+пользователей.</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Все системы предлагают
+различные опции для персонализации и
+настройки системы под конкретные нужды
+пользователя, что увеличивает их удобство
+использования.</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Все системы доступны как
+облачный сервис или как локальное
+приложение, что обеспечивает безопасность
+и доступность данных.</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Все системы бесплатны для
+небольших объемов данных, но требуют
+оплаты за большие объемы или дополнительные
+функции. Однако существуют и некоторые
+различия между этими системами, которые
+могут влиять на выбор пользователя в
+зависимости от его целей и предпочтений.
+Например, Google Speech-to-Text имеет самый широкий
+выбор языков и диалектов, но также имеет
+самые высокие цены за большие объемы
+данных. Microsoft Speech Services имеет самую
+продвинутую функцию распознавания
+эмоций и тональности речи, но также
+имеет самые строгие ограничения на
+размер и длительность файлов. IBM Watson
+Speech to Text имеет самую глубокую специализацию
+по отраслям и областям знаний, но также
+имеет самую низкую скорость распознавания.
+Яндекс.Распознавание имеет самую высокую
+точность для русского языка, но также
+имеет самую ограниченную поддержку
+других языков. Amazon Transcribe имеет самую
+гибкую настройку и персонализацию
+системы, но также имеет самую сложную
+интеграцию с другими сервисами.</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Таким образом, можно сказать,
+что каждая из рассмотренных систем
+распознавания речи имеет свои сильные
+и слабые стороны, а выбор оптимальной
+системы зависит от конкретных потребностей
+и задач пользователя.</span></p>
+<p class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<br/>
+
+</p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font face="Arial, serif"><span lang="ru-RU"><i><b>Методология
+разработки системы распознавания речи</b></i></span></font></p>
+<p class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<br/>
+
+</p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">В этом разделе мы изложим наш
+подход к созданию системы распознавания
+речи на C#, которая удовлетворяет
+поставленной цели. Мы будем использовать
+следующие технологии, алгоритмы, модели
+и инструменты:</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">.NET 5 SDK: это современный и
+универсальный фреймворк для разработки
+приложений на C# и других языках. Он
+обладает множеством библиотек и
+инструментов для работы с данными,
+машинным обучением и обработкой сигналов.
+Мы будем использовать .NET 5 SDK для написания
+кода нашей системы и для взаимодействия
+с другими сервисами и приложениями [4].</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Cognitive Services Speech SDK: это один из
+самых популярных и мощных SDK для работы
+с речью от Microsoft. Он позволяет легко
+интегрировать функции распознавания
+речи, синтеза речи, перевода речи и
+понимания речи в приложения на C# и других
+языках. Мы будем использовать Cognitive
+Services Speech SDK для преобразования звукового
+сигнала в текст и для определения
+намерений говорящего [5].</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Language Understanding (LUIS): это сервис
+от Microsoft, который позволяет создавать
+и обучать модели понимания речи на
+основе нейронных сетей. Он поддерживает
+несколько языков и диалектов, а также
+способен распознавать разговорную
+речь, акценты и диалекты. Мы будем
+использовать LUIS для определения намерений
+говорящего на основе текста, полученного
+от Cognitive Services Speech SDK [6].</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Для иллюстрации нашей
+методологии мы приведем следующие
+диаграммы:</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Диаграмма потока данных на
+рисунке 1: она показывает, как наши данные
+проходят через различные этапы
+предобработки, обучения и тестирования
+нашей системы.</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Диаграмма архитектуры системы
+на рисунке 2: она показывает, как наша
+система распознавания речи состоит из
+нескольких компонентов и служб, которые
+выполняют различные функции.</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Диаграмма интерфейса системы
+на рисунке 3: она показывает, как
+пользователь может взаимодействовать
+с нашей системой через консольный или
+графический интерфейс.</span></p>
+<p class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<br/>
+
+</p>
+<p lang="en-US" class="western" align="center" style="line-height: 100%; margin-bottom: 0in">
+<img src="Конференция_html_10969df2ad62b5c8.png" name="Рисунок 7" align="bottom" width="374" height="290" border="0"/>
+</p>
+<p lang="en-US" class="western" align="center" style="line-height: 100%; margin-bottom: 0in">
+<span lang="ru-RU">Рисунок 1 – Диаграмма потока
+данных</span></p>
+<p class="western" align="center" style="line-height: 100%; margin-bottom: 0in">
+<br/>
+
+</p>
+<p class="western" align="center" style="line-height: 100%; margin-bottom: 0in">
+<br/>
+
+</p>
+<p lang="en-US" class="western" align="center" style="line-height: 100%; margin-bottom: 0in">
+<img src="Конференция_html_b4fa17a4274d4385.png" name="Рисунок 5" align="bottom" width="371" height="152" border="0"/>
+</p>
+<p lang="en-US" class="western" align="center" style="line-height: 100%; margin-bottom: 0in">
+<span lang="ru-RU">Рисунок 2 – Диаграмма
+архитектуры системы</span></p>
+<p class="western" align="center" style="line-height: 100%; margin-bottom: 0in">
+<br/>
+
+</p>
+<p lang="en-US" class="western" align="center" style="line-height: 100%; margin-bottom: 0in">
+<img src="Конференция_html_a8d22da71bd7c46c.png" name="Рисунок 4" align="bottom" width="233" height="154" border="0"/>
+</p>
+<p lang="en-US" class="western" align="center" style="line-height: 100%; margin-bottom: 0in">
+<span lang="ru-RU">Рисунок 3 – Диаграмма интерфейса
+системы</span></p>
+<p class="western" align="center" style="line-height: 100%; margin-bottom: 0in">
+<br/>
+
+</p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font face="Arial, serif"><span lang="ru-RU"><i><b>Алгоритмы
+распознавания речи</b></i></span></font></p>
+<p class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<br/>
+
+</p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Для того, чтобы преобразовать
+звуковой сигнал в текст, наша система
+использует несколько алгоритмов, которые
+выполняют различные этапы обработки и
+анализа речи. В общем виде, эти этапы
+можно представить следующим образом:</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Анализ сигнала</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">На этом этапе мы применяем
+различные методы обработки сигналов,
+такие как фильтрация, усиление, подавление
+шума и эха, для того, чтобы улучшить
+качество и четкость звукового сигнала.
+Это необходимо для того, чтобы уменьшить
+влияние фоновых шумов и искажений на
+результат распознавания речи. Для этого
+мы используем такие алгоритмы, как:</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Адаптивный фильтр Винера:
+это алгоритм, который позволяет подавлять
+шум в звуковом сигнале на основе
+статистических свойств сигнала и шума.
+Он адаптируется к изменению характеристик
+шума и сигнала во времени и частоте [7].</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Алгоритм спектрального
+вычитания: это алгоритм, который позволяет
+подавлять шум в звуковом сигнале на
+основе разности спектров сигнала и
+шума. Он работает в частотной области
+и требует оценки спектра шума [8].</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Алгоритм эхокомпенсации: это
+алгоритм, который позволяет подавлять
+эхо в звуковом сигнале на основе
+моделирования импульсной характеристики
+канала передачи. Он работает во временной
+области и требует адаптации к изменению
+условий канала [9].</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Преимущества анализа сигнала:</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">- улучшение качества и четкости
+звукового сигнала</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">- уменьшение влияния фоновых
+шумов и искажений на результат
+распознавания речи</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">- увеличение точности и
+надежности распознавания речи</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Извлечение признаков</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">На этом этапе мы преобразуем
+звуковой сигнал в набор численных
+характеристик, которые отражают его
+спектральные и временные свойства. Это
+необходимо для того, чтобы упростить
+задачу распознавания речи и выделить
+наиболее важную информацию из сигнала.
+Для этого мы используем такие методы,
+как:</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Оконное преобразование Фурье:
+это метод, который позволяет перевести
+звуковой сигнал из временной области
+в частотную область. Он разбивает сигнал
+на короткие фрагменты (окна) и применяет
+к ним дискретное преобразование Фурье.
+Это позволяет получить спектрограмму
+сигнала - двумерное представление его
+частотного состава в зависимости от
+времени [10].</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Мел-частотное кепстральное
+преобразование: это метод, который
+позволяет получить набор коэффициентов,
+которые характеризуют форму спектра
+звукового сигнала. Он применяет к
+спектрограмме сигнала следующие шаги:
+логарифмирование амплитуды спектра,
+применение мел-фильтров для учета
+нелинейного восприятия частот человеком,
+обратное дискретное косинусное
+преобразование для получения кепстра
+- спектра логарифма спектра. Коэффициенты
+кепстра называются мел-частотными
+кепстральными коэффициентами (MFCC) и
+являются одним из самых распространенных
+признаков для распознавания речи.</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Линейный предсказательный
+анализ: это метод, который позволяет
+получить набор коэффициентов, которые
+характеризуют способность звукового
+сигнала предсказывать свои будущие
+значения на основе своих прошлых
+значений. Он основан на модели
+авторегрессии, которая представляет
+сигнал как линейную комбинацию своих
+предыдущих отсчетов и ошибки предсказания.
+Коэффициенты авторегрессии называются
+линейными предсказательными коэффициентами
+(LPC) и также используются для распознавания
+речи.</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Преимущества извлечения
+признаков:</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">- упрощение задачи распознавания
+речи и выделение наиболее важной
+информации из сигнала</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">- уменьшение размерности
+данных и снижение вычислительной
+сложности</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">- учет специфики человеческого
+восприятия речи и повышение точности
+распознавания</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Распознавание речи: на этом
+этапе мы сопоставляем набор признаков
+с набором слов или фраз, которые имеют
+наибольшую вероятность быть произнесенными.
+Для этого мы используем такие методы,
+как динамическое программирование,
+скрытые модели Маркова и нейронные
+сети.</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Понимание речи: на этом этапе
+мы определяем намерение говорящего на
+основе текста, полученного от распознавания
+речи. Для этого мы используем такие
+методы, как анализ естественного языка,
+извлечение сущностей и классификация
+намерений.</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Распознавание речи в реальном
+времени основано на сложных алгоритмах
+машинного обучения, которые анализируют
+звуковой сигнал на разных уровнях: от
+отдельных звуков до слов и фраз. Существуют
+разные подходы к распознаванию речи,
+такие как скрытые марковские модели,
+нейронные сети или комбинации этих
+методов. Для улучшения качества
+распознавания речи необходимо учитывать
+разные факторы, такие как шум, акцент,
+скорость или контекст говорящего.</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Скрытые марковские модели
+(HMM) - это один из наиболее распространенных
+подходов к распознаванию речи. Они
+основаны на статистической модели,
+которая описывает вероятность перехода
+между скрытыми состояниями и вероятность
+наблюдения определенных признаков в
+каждом состоянии. Скрытые состояния
+соответствуют фонемам - минимальным
+звуковым единицам языка, а признаки -
+это численные характеристики звукового
+сигнала. Для распознавания речи
+используются специальные виды HMM, такие
+как трифонные модели или модели с
+пропусками. Они позволяют учитывать
+контекст и вариативность произношения.</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Нейронные сети (NN) - это другой
+подход к распознаванию речи, который
+стал популярным в последние годы. Они
+основаны на математической модели,
+которая имитирует работу биологических
+нейронов и их связей. Нейронные сети
+способны обучаться на больших объемах
+данных и автоматически извлекать
+признаки из звукового сигнала. Для
+распознавания речи используются разные
+виды NN, такие как сверточные нейронные
+сети (CNN), рекуррентные нейронные сети
+(RNN) или трансформеры. Они позволяют
+учитывать сложную структуру и динамику
+речевого сигнала.</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Комбинации HMM и NN - это третий
+подход к распознаванию речи, который
+объединяет преимущества обоих методов.
+Он заключается в том, что NN используются
+для оценки вероятностей наблюдения
+признаков в HMM или для генерации признаков
+для HMM. Такой подход позволяет повысить
+точность и скорость распознавания речи
+за счет лучшего моделирования звукового
+сигнала и его статистических свойств.</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Для улучшения качества
+распознавания речи необходимо учитывать
+разные факторы, которые могут влиять
+на произношение и понимание речи.
+Например:</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">1. Шум. Шум может мешать
+распознаванию речи, так как он затрудняет
+выделение целевого голоса из фоновых
+звуков. Шум может быть стационарным,
+например, шум от кондиционера или
+двигателя, или нестационарным, например,
+шум от других говорящих или музыки. Чем
+больше шума и чем ближе он по спектру к
+целевой речи, тем сложнее распознать
+речь.</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">2. Акцент. Акцент может влиять
+на распознавание речи, так как он отражает
+различия в произношении звуков, ударениях
+и интонации между разными говорящими.
+Акцент может быть связан с родным языком
+говорящего, его регионом или социальной
+группой. Чем больше акцент отличается
+от стандартного или ожидаемого
+произношения, тем сложнее распознать
+речь.</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">3. Скорость. Скорость может
+влиять на распознавание речи, так как
+она определяет длительность и четкость
+звуков и слов. Скорость может варьироваться
+в зависимости от эмоций, цели или стиля
+говорящего. Чем быстрее говорит человек,
+тем сложнее распознать речь, так как
+звуки могут сливаться или теряться.</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">4. Контекст. Контекст может
+влиять на распознавание речи, так как
+он помогает понять смысл и значение
+речи. Контекст может быть связан с темой,
+ситуацией или задачей говорящего и
+слушающего. Контекст может помогать
+угадывать незнакомые или нечеткие
+слова, а также разрешать неоднозначности
+или ошибки в речи.</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Для улучшения качества
+распознавания речи необходимо учитывать
+все эти факторы и применять соответствующие
+методы и алгоритмы для их компенсации
+или устранения.</span></p>
+<p class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<br/>
+
+</p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font face="Arial, serif"><span lang="ru-RU"><i><b>Разработка
+тестового приложения для распознавания
+речи</b></i></span></font></p>
+<p class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<br/>
+
+</p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Целью данного приложения
+является демонстрация возможностей
+распознавания речи на основе Microsoft
+Speech API. Это приложение позволит пользователю
+диктовать команды на русском языке и
+видеть их текстовое представление на
+экране. Также это приложение может быть
+использовано для обучения или тестирования
+распознавания речи в разных условиях.</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Функции, которые будет
+выполнять приложение, включают:</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Инициализация и настройка
+объекта SpeechRecognitionEngine или SpeechRecognizer для
+работы с локальным или облачным движком
+или сервисом распознавания речи.</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Загрузка и применение
+грамматики для распознавания определенных
+команд или запросов на русском языке.</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Установка входного
+аудиоустройства по умолчанию для захвата
+звукового сигнала от микрофона
+пользователя.</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Запуск и остановка процесса
+распознавания речи по нажатию кнопок
+“Старт” и “Стоп”.</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Вывод текста распознанной
+речи в текстовое поле на экране.</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Факторы, которые способствовали
+разработке приложения, включают:</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Рост интереса к технологии
+распознавания речи и ее применению в
+разных сферах жизни и деятельности.</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Развитие и улучшение движков
+и сервисов распознавания речи, основанных
+на статистических моделях и нейронных
+сетях.</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Доступность и простота
+использования Microsoft Speech API для интеграции
+функций распознавания речи в приложения
+для Windows.</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Для обучения этого приложения
+для распознавания слов и предложений
+на русском языке нужно использовать
+грамматику и языковой пакет для Microsoft
+Speech API. Грамматика - это набор правил,
+которые определяют, какие слова или
+фразы может распознать приложение.
+Языковой пакет - это набор файлов, которые
+содержат модели и словари для определенного
+языка или диалекта.</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Для создания грамматики можно
+использовать класс Choices, который позволяет
+добавить список возможных команд или
+запросов на русском языке. Например:</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">numbers = new Choices(); numbers.Add(“привет”,
+“как дела”, “что делаешь”, “покажи
+мне маршрут к парку”, “назад”);</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">Для загрузки языкового пакета
+нужно установить его на компьютере и
+указать культуру ru-ru при создании объекта
+SpeechRecognitionEngine или SpeechRecognizer. Например:</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+sre = new SpeechRecognitionEngine(new CultureInfo(“ru-ru”));</p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<br/>
+
+</p>
+<p lang="en-US" class="western" align="center" style="line-height: 100%; margin-bottom: 0in">
+<img src="Конференция_html_c48738157c353822.png" name="Рисунок 1" align="bottom" width="272" height="177" border="0"/>
+<img src="Конференция_html_5ca8f5869978a981.png" name="Image2" align="bottom" width="271" height="176" border="0"/>
+</p>
+<p lang="en-US" class="western" align="center" style="line-height: 100%; margin-bottom: 0in">
+<img src="Конференция_html_7085c44e03dc33ca.png" name="Image3" align="bottom" width="280" height="181" border="0"/>
+<img src="Конференция_html_7887bfa0278dd60c.png" name="Image4" align="bottom" width="281" height="182" border="0"/>
+</p>
+<p lang="en-US" class="western" align="center" style="line-height: 100%; margin-bottom: 0in">
+<span lang="ru-RU">Рисунок 4 – Интерфейс тестового
+приложения</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font face="Arial, serif"><span lang="ru-RU"><i><b>Выводы</b></i></span></font></p>
+<p class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<br/>
+
+</p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU">В этой статье были рассмотрены
+основные подходы, методы и факторы,
+связанные с распознаванием речи в
+реальном времени. Было показано, как
+можно создать тестовое приложение для
+распознавания речи на основе Microsoft
+Speech API и как можно улучшить качество
+распознавания речи с помощью модели
+адаптации. Мы также описали библиотеку
+using Microsoft.Speech.Recognition и ее возможности для
+работы с разными движками и сервисами
+распознавания речи. Эта статья будет
+полезна для тех, кто интересуется
+технологией распознавания речи и хочет
+использовать ее в своих приложениях. В
+заключение отмечу, что распознавание
+речи - это динамичная и развивающаяся
+область, которая предлагает много
+перспектив и вызовов для исследователей
+и разработчиков.</span></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font face="Arial, serif"><span lang="ru-RU"><i><b>Литература</b></i></span></font></p>
+<p lang="uk-UA" align="justify" style="line-height: 100%; orphans: 0; widows: 0; margin-top: 0.17in; margin-bottom: 0.08in; page-break-after: avoid">
+<font face="Arial, serif"><font face="Times New Roman, serif"><span lang="ru-RU"><span style="font-style: normal"><span style="font-weight: normal">	1.Распознавание
+речи // Википедия. - Режим доступа:
+https://ru.wikipedia.org/wiki/%D0%A0%D0%B0%D1%81%D0%BF%D0%BE%D0%B7%D0%BD%D0%B0%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5_%D1%80%D0%B5%D1%87%D0%B8
+- Загл. с экрана.</span></span></span></font></font></p>
+<p lang="uk-UA" align="justify" style="line-height: 100%; orphans: 0; widows: 0; margin-top: 0.17in; margin-bottom: 0.08in; page-break-after: avoid">
+<font face="Arial, serif"><font face="Times New Roman, serif"><span lang="ru-RU"><span style="font-style: normal"><span style="font-weight: normal">	2.Speech-to-Text
+// WIPO. - Режим доступа:
+https://www.wipo.int/about-ip/ru/artificial_intelligence/speech_to_text.html
+- Загл. с экрана.</span></span></span></font></font></p>
+<p lang="uk-UA" align="justify" style="line-height: 100%; orphans: 0; widows: 0; margin-top: 0.17in; margin-bottom: 0.08in; page-break-after: avoid">
+<font face="Arial, serif"><font face="Times New Roman, serif"><span lang="ru-RU"><span style="font-style: normal"><span style="font-weight: normal">	3.Как
+работают системы распознавания речи
+// Se7en. - Режим доступа:
+https://se7en.ws/kak-rabotayut-sistemy-raspoznavaniya-rechi/ - Загл.
+с экрана.</span></span></span></font></font></p>
+<p lang="uk-UA" align="justify" style="line-height: 100%; orphans: 0; widows: 0; margin-top: 0.17in; margin-bottom: 0.08in; page-break-after: avoid">
+<font face="Arial, serif"><font face="Times New Roman, serif"><span lang="ru-RU"><span style="font-style: normal"><span style="font-weight: normal">	</span></span></span></font><font face="Times New Roman, serif"><span lang="en-US"><span style="font-style: normal"><span style="font-weight: normal">4.Speech
+Recognition Using C# // C# Corner. - </span></span></span></font><font face="Times New Roman, serif"><span lang="ru-RU"><span style="font-style: normal"><span style="font-weight: normal">Режим</span></span></span></font><font face="Times New Roman, serif"><span lang="en-US"><span style="font-style: normal"><span style="font-weight: normal">
+</span></span></span></font><font face="Times New Roman, serif"><span lang="ru-RU"><span style="font-style: normal"><span style="font-weight: normal">доступа</span></span></span></font><font face="Times New Roman, serif"><span lang="en-US"><span style="font-style: normal"><span style="font-weight: normal">:
+https://www.c-sharpcorner.com/article/speech-recognition-using-C-Sharp/
+- </span></span></span></font><font face="Times New Roman, serif"><span lang="ru-RU"><span style="font-style: normal"><span style="font-weight: normal">Загл</span></span></span></font><font face="Times New Roman, serif"><span lang="en-US"><span style="font-style: normal"><span style="font-weight: normal">.
+</span></span></span></font><font face="Times New Roman, serif"><span lang="ru-RU"><span style="font-style: normal"><span style="font-weight: normal">с</span></span></span></font><font face="Times New Roman, serif"><span lang="en-US"><span style="font-style: normal"><span style="font-weight: normal">
+</span></span></span></font><font face="Times New Roman, serif"><span lang="ru-RU"><span style="font-style: normal"><span style="font-weight: normal">экрана</span></span></span></font><font face="Times New Roman, serif"><span lang="en-US"><span style="font-style: normal"><span style="font-weight: normal">.</span></span></span></font></font></p>
+<p lang="uk-UA" align="justify" style="line-height: 100%; orphans: 0; widows: 0; margin-top: 0.17in; margin-bottom: 0.08in; page-break-after: avoid">
+<font face="Arial, serif"><font face="Times New Roman, serif"><span lang="en-US"><span style="font-style: normal"><span style="font-weight: normal">	5.Easy
+C# Speech Recognition // AssemblyAI. - </span></span></span></font><font face="Times New Roman, serif"><span lang="ru-RU"><span style="font-style: normal"><span style="font-weight: normal">Режим</span></span></span></font><font face="Times New Roman, serif"><span lang="en-US"><span style="font-style: normal"><span style="font-weight: normal">
+</span></span></span></font><font face="Times New Roman, serif"><span lang="ru-RU"><span style="font-style: normal"><span style="font-weight: normal">доступа</span></span></span></font><font face="Times New Roman, serif"><span lang="en-US"><span style="font-style: normal"><span style="font-weight: normal">:
+https://www.assemblyai.com/blog/easy-c-speech-recognition/ - </span></span></span></font><font face="Times New Roman, serif"><span lang="ru-RU"><span style="font-style: normal"><span style="font-weight: normal">Загл</span></span></span></font><font face="Times New Roman, serif"><span lang="en-US"><span style="font-style: normal"><span style="font-weight: normal">.
+</span></span></span></font><font face="Times New Roman, serif"><span lang="ru-RU"><span style="font-style: normal"><span style="font-weight: normal">с</span></span></span></font><font face="Times New Roman, serif"><span lang="en-US"><span style="font-style: normal"><span style="font-weight: normal">
+</span></span></span></font><font face="Times New Roman, serif"><span lang="ru-RU"><span style="font-style: normal"><span style="font-weight: normal">экрана</span></span></span></font><font face="Times New Roman, serif"><span lang="en-US"><span style="font-style: normal"><span style="font-weight: normal">.</span></span></span></font></font></p>
+<p lang="uk-UA" align="justify" style="line-height: 100%; orphans: 0; widows: 0; margin-top: 0.17in; margin-bottom: 0.08in; page-break-after: avoid">
+<font face="Arial, serif"><font face="Times New Roman, serif"><span lang="en-US"><span style="font-style: normal"><span style="font-weight: normal">	6.How
+to recognize intents from speech (C#) // Microsoft Learn. - </span></span></span></font><font face="Times New Roman, serif"><span lang="ru-RU"><span style="font-style: normal"><span style="font-weight: normal">Режим</span></span></span></font><font face="Times New Roman, serif"><span lang="en-US"><span style="font-style: normal"><span style="font-weight: normal">
+</span></span></span></font><font face="Times New Roman, serif"><span lang="ru-RU"><span style="font-style: normal"><span style="font-weight: normal">доступа</span></span></span></font><font face="Times New Roman, serif"><span lang="en-US"><span style="font-style: normal"><span style="font-weight: normal">:
+https://learn.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp
+- </span></span></span></font><font face="Times New Roman, serif"><span lang="ru-RU"><span style="font-style: normal"><span style="font-weight: normal">Загл</span></span></span></font><font face="Times New Roman, serif"><span lang="en-US"><span style="font-style: normal"><span style="font-weight: normal">.
+</span></span></span></font><font face="Times New Roman, serif"><span lang="ru-RU"><span style="font-style: normal"><span style="font-weight: normal">с</span></span></span></font><font face="Times New Roman, serif"><span lang="en-US"><span style="font-style: normal"><span style="font-weight: normal">
+</span></span></span></font><font face="Times New Roman, serif"><span lang="ru-RU"><span style="font-style: normal"><span style="font-weight: normal">экрана</span></span></span></font><font face="Times New Roman, serif"><span lang="en-US"><span style="font-style: normal"><span style="font-weight: normal">.</span></span></span></font></font></p>
+<p lang="uk-UA" align="justify" style="line-height: 100%; orphans: 0; widows: 0; margin-top: 0.17in; margin-bottom: 0.08in; page-break-after: avoid">
+<font face="Arial, serif"><font face="Times New Roman, serif"><span lang="en-US"><span style="font-style: normal"><span style="font-weight: normal">	</span></span></span></font><font face="Times New Roman, serif"><span lang="ru-RU"><span style="font-style: normal"><span style="font-weight: normal">7.Алгоритмы
+распознавания речи // Bing. - Режим доступа:
+https://bing.com/search?q=%d0%b0%d0%bb%d0%b3%d0%be%d1%80%d0%b8%d1%82%d0%bc%d1%8b+%d1%80%d0%b0%d1%81%d0%bf%d0%be%d0%b7%d0%bd%d0%b0%d0%b2%d0%b0%d0%bd%d0%b8%d1%8f+%d1%80%d0%b5%d1%87%d0%b8
+- Загл. с экрана.</span></span></span></font></font></p>
+<p lang="uk-UA" align="justify" style="line-height: 100%; orphans: 0; widows: 0; margin-top: 0.17in; margin-bottom: 0.08in; page-break-after: avoid">
+<font face="Arial, serif"><font face="Times New Roman, serif"><span lang="ru-RU"><span style="font-style: normal"><span style="font-weight: normal">	8.Как
+работает распознавание речи в Яндексе
+// Хабр. - Режим доступа:
+https://habr.com/ru/companies/ashmanov_net/articles/523412/ - Загл.
+с экрана.</span></span></span></font></font></p>
+<p lang="uk-UA" align="justify" style="line-height: 100%; orphans: 0; widows: 0; margin-top: 0.17in; margin-bottom: 0.08in; page-break-after: avoid">
+<font face="Arial, serif"><font face="Times New Roman, serif"><span lang="ru-RU"><span style="font-style: normal"><span style="font-weight: normal">	9.Как
+работает распознавание речи в Google //
+Хабр. - Режим доступа:
+https://habr.com/ru/articles/226143/ - Загл. с экрана.</span></span></span></font></font></p>
+<p lang="uk-UA" align="justify" style="line-height: 100%; orphans: 0; widows: 0; margin-top: 0.17in; margin-bottom: 0.08in; page-break-after: avoid">
+<font face="Arial, serif"><font face="Times New Roman, serif"><span lang="ru-RU"><span style="font-style: normal"><span style="font-weight: normal">	10.Как
+работает распознавание речи в Nuance //
+Хабр. - Режим доступа:
+https://habr.com/ru/post/135087/ - Загл. с экрана.</span></span></span></font></font></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; margin-left: 0.49in; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU"><i><b>Баляба Я.В., Рычка О.В.
+Разработка приложения для распознавания
+речи.</b></i></span><span lang="ru-RU"><i> Статья посвящена
+технологии распознавания речи в реальном
+времени и ее применению в различных
+сферах жизни и деятельности. В статье
+рассмотрены основные подходы, методы
+и факторы, которые влияют на качество
+и скорость распознавания речи, такие
+как: подходы к распознаванию речи, методы
+и факторы. В статье также показано, как
+можно создать тестовое приложение для
+распознавания речи на основе Microsoft
+Speech API, которое позволяет пользователю
+диктовать команды на русском языке и
+видеть их текстовое представление на
+экране. В статье описаны основные
+функциональные требования к приложению.</i></span><span lang="ru-RU">
+</span><span lang="ru-RU"><i>В статье также рассмотрены
+способы улучшения качества распознавания
+речи с помощью модели адаптации, которая
+позволяет увеличить вероятность
+распознавания определенных слов или
+фраз. Также приведён пример интерфейса
+системы.</i></span></p>
+<p class="western" align="justify" style="line-height: 100%; margin-left: 0.49in; text-indent: 0.49in; margin-bottom: 0in">
+<br/>
+
+</p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; margin-left: 0.49in; text-indent: 0.49in; margin-bottom: 0in">
+<span lang="ru-RU"><i><b>Ключевые слова:</b></i></span><span lang="ru-RU"><i>
+распознавание речи, нейронные сети,
+скрытые марковские модели.</i></span></p>
+<p class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<br/>
+
+</p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; margin-left: 0.49in; text-indent: 0.49in; margin-bottom: 0in">
+<i><b>Balyaba Yana, Rycka Olga. Development of a speech recognition
+application.</b></i> <i>The article is devoted to real-time speech
+recognition technology and its application in various spheres of life
+and activity. The article discusses the main approaches, methods and
+factors that affect the quality and speed of speech recognition, such
+as: approaches to speech recognition, methods and factors. The
+article also shows how you can create a test application for speech
+recognition based on the Microsoft Speech API, which allows the user
+to dictate commands in Russian and see their text representation on
+the screen. The article describes the main functional requirements
+for the application. The article also discusses ways to improve the
+quality of speech recognition using an adaptation model that allows
+you to increase the probability of recognizing certain words or
+phrases. An example of the system interface is also provided.</i></p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<br/>
+
+</p>
+<p lang="en-US" class="western" align="justify" style="line-height: 100%; margin-left: 0.49in; text-indent: 0.49in; margin-bottom: 0in">
+<i><b>Keywords</b></i>: <i>speech recognition, neural networks,
+hidden Markov models.</i></p>
+</body>
+</html>

@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 7.4.2.3 (Linux)"/>
+	<meta name="author" content="Вадим Бондаренко"/>
+	<meta name="created" content="2023-11-13T20:38:00"/>
+	<meta name="changedby" content="Вадим Бондаренко"/>
+	<meta name="changed" content="2023-12-16T16:23:00"/>
+	<meta name="AppVersion" content="16.0000"/>
+	<style type="text/css">
+		@page { size: 8.27in 11.69in; margin-left: 0.98in; margin-right: 0.59in; margin-top: 0.79in; margin-bottom: 0.79in }
+		p { line-height: 115%; text-align: left; orphans: 2; widows: 2; margin-bottom: 0.1in; direction: ltr; background: transparent }
+		a:link { color: #0563c1; text-decoration: underline }
+	</style>
+</head>
+<body lang="ru-RU" link="#0563c1" vlink="#800000" dir="ltr"><p style="line-height: 100%; margin-bottom: 0in">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">УДК
+004.____</font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p align="center" style="line-height: 100%; margin-bottom: 0in"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>УЛУЧШЕНИЯ
+РАСПОЗНАВАНИЯ РЕЧИ  (</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="en-US"><b>SPEECH</b></span></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>
+</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="en-US"><b>TO</b></span></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>
+</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="en-US"><b>TEXT</b></span></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>)</b></font></font></p>
+<p align="center" style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p align="center" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Баляба
+Я.В., Рычка О.В. </font></font>
+</p>
+<p align="center" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">ФГБОУ
+ВО «Донецкий национальный технический
+университет» (г. Донецк) </font></font>
+</p>
+<p align="center" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">кафедра
+«Прикладная математика и искусственный
+интеллект» </font></font>
+</p>
+<p align="center" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">e-mail:
+mail_1@gmail.com, olga_rychka@mail.ru</span></font></font></p>
+<p lang="en-US" align="center" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<br/>
+
+</p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><i>Баляба
+Я.В., Рычка О.В. Улучшения распознавания
+речи  (speech to text). В работе изучены технологии
+и подходы для распознавания речи.
+Выявлены недостатки и преимущества
+этих подходов.</i></font></font> <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><i>Приведены
+примеры программ и систем, которые
+используют эти технологии и методы.
+Также предложен новый подход к
+распознаванию речи - интегральный,
+который использует комбинацию разных
+уровней анализа и интегрирует их в
+единый результат. В работе сделаны
+выводы и рекомендации по улучшению
+распознавания речи в будущем.</i></font></font></p>
+<p style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><i>Ключевые
+слова: распознавание речи, подходы,
+искусственный интеллект, нейронные
+сети, интегральный подход к распознаванию
+речи.</i></font></font></p>
+<p style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Введение</b></font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Распознавание
+речи - это процесс преобразования
+звукового сигнала в текстовый. Это может
+быть полезно для разных целей, таких
+как диктовка, перевод, управление
+устройствами, общение и т.д. Однако
+распознавание речи не всегда точно и
+быстро, поэтому существуют разные методы
+и технологии для улучшения его качества
+и эффективности.</font></font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Актуальность
+и необходимость исследования обусловлены
+тем, что распознавание речи является
+одним из важнейших направлений развития
+искусственного интеллекта и имеет
+большой потенциал для применения в
+различных сферах жизни и деятельности
+человека. Распознавание речи способствует
+повышению удобства и эффективности
+взаимодействия человека и компьютера,
+а также расширению возможностей общения
+между людьми разных языков и культур.
+Распознавание речи также может помочь
+людям с ограниченными возможностями,
+такими как слабовидящие, глухие или
+немые, в интеграции в общество и повышении
+качества жизни.</font></font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Целью
+исследования является анализ современных
+подходов, методов и технологий улучшения
+распознавания речи, а также выявление
+их преимуществ, недостатков и перспектив
+развития. Для достижения этой цели были
+поставлены следующие задачи:</font></font></font></p>
+<ul>
+	<li><p align="justify" style="line-height: 100%; margin-bottom: 0in">
+	<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">изучить
+	историю и основные этапы развития
+	распознавания речи;</font></font></font></p>
+	<li><p align="justify" style="line-height: 100%; margin-bottom: 0in">
+	<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">рассмотреть
+	разные подходы к распознаванию речи,
+	такие как акустический, лексический,
+	синтаксический, семантический и
+	прагматический, и оценить их достоинства
+	и недостатки;</font></font></font></p>
+	<li><p align="justify" style="line-height: 100%; margin-bottom: 0in">
+	<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">изучить
+	современные технологии и методы
+	улучшения распознавания речи, такие
+	как искусственный интеллект, нейронные
+	сети, трансфертное обучение, аугментация
+	данных, языковые модели и т.д., и привести
+	примеры их применения в различных
+	программах и системах;</font></font></font></p>
+	<li><p align="justify" style="line-height: 100%; margin-bottom: 0in">
+	<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">сделать
+	выводы и рекомендации по улучшению
+	распознавания речи в будущем.</font></font></font></p>
+</ul>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Научная
+новизна и практическая значимость
+исследования заключаются в том, что в
+работе проведен комплексный анализ
+современных подходов, методов и технологий
+улучшения распознавания речи, а также
+выявлены их сильные и слабые стороны,
+предложены возможности для дальнейшего
+совершенствования. Результаты исследования
+могут быть полезны для разработчиков
+программного обеспечения, связанного
+с распознаванием речи, а также для
+пользователей, желающих повысить
+качество и скорость распознавания речи.</font></font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Объектом
+исследования является процесс
+распознавания речи, а предметом -
+современные подходы, методы и технологии
+улучшения распознавания речи.</font></font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Теоретической
+(методологической) базой исследования
+являются научные статьи, книги,
+диссертации, отчеты, интернет-ресурсы,
+посвященные теме распознавания речи и
+его улучшения. Для анализа и сравнения
+различных подходов, методов и технологий
+использовались методы логического,
+системного и критического анализа, а
+также методы синтеза и обобщения
+информации.</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>1.
+Подходы к распознаванию речи</b></font></font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Акустический
+подход к распознаванию речи основан на
+том, что речь состоит из звуков, которые
+можно измерить и сравнить с эталонными
+образцами. Этот подход использует
+спектральный анализ, который преобразует
+звуковой сигнал в набор частот и амплитуд,
+которые характеризуют звук. Затем эти
+признаки сопоставляются с эталонными
+образцами, которые хранятся в базе
+данных. Этот подход может быть реализован
+с помощью разных техник, таких как
+скрытые марковские модели, динамическое
+программирование, нейронные сети и т.д.
+Примером программы, которая использует
+акустический подход, является [Dragon
+NaturallySpeaking], которая позволяет диктовать
+текст и управлять компьютером голосом.
+Преимуществом акустического подхода
+является то, что он может распознавать
+любые слова и фразы, которые произносит
+говорящий, без ограничений словаря или
+грамматики.</font></font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Лексический
+подход - речь состоит из слов и фраз,
+которые можно определить и проверить
+с помощью словарей и грамматик. Этот
+подход использует лексический анализ,
+который разбивает звуковой сигнал на
+отдельные слова и фразы, и грамматический
+анализ, который проверяет правильность
+их употребления в речи. Лексический
+подход может быть реализован с помощью
+разных техник, таких как конечные
+автоматы, статистические модели, правила
+и т.д. Примером программы, является
+[Google Translate], которая позволяет переводить
+речь с одного языка на другой. Преимуществом
+лексического подхода является то, что
+он может учитывать синтаксическую
+структуру речи и проверять ее корректность.</font></font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Синтаксический
+подход в себе несёт речь, которая состоит
+из синтаксических единиц, которые, в
+свою очередь, имеют связи и зависимости
+между собой. Этот подход использует
+синтаксический анализ, который определяет
+связи между словами и фразами в речи и
+строит синтаксическое дерево, которое
+представляет структуру речи. Этот подход
+может быть реализован с помощью разных
+техник, таких как контекстно-свободные
+грамматики, зависимостные грамматики,
+синтаксические парсеры и т.д. Примером
+программы, является [Siri], которая позволяет
+общаться с компьютером голосом и
+выполнять разные задачи. Преимуществом
+синтаксического подхода является то,
+что он может учитывать синтаксическую
+и семантическую структуру речи и
+определять ее смысл.</font></font></font></p>
+<p style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>2.
+Недостатки</b></font></font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">В
+процессе анализа различных подходов,
+методов и технологий улучшения
+распознавания речи были выявлены
+следующие недостатки:</font></font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Акустический
+подход к распознаванию речи основан на
+сопоставлении звуковых признаков речи
+с эталонными образцами, которые хранятся
+в базе данных. Этот подход требует
+большого объема памяти и вычислительных
+ресурсов, а также не учитывает контекст
+и смысл речи. Кроме того, этот подход
+чувствителен к шуму, акценту, диалекту
+и индивидуальным особенностям говорящего.</font></font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Лексический
+подход основан на использовании словарей
+и грамматик, которые описывают возможные
+комбинации слов и фраз в речи. Этот
+подход позволяет учитывать синтаксическую
+структуру речи, но не учитывает
+семантический и прагматический смысл.
+Также этот подход ограничен словарным
+запасом и грамматическими правилами,
+которые могут не соответствовать
+реальному языковому использованию.</font></font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Синтаксический
+подход к распознаванию речи основан на
+использовании синтаксических анализаторов,
+которые определяют связи между словами
+и фразами в речи. Этот подход позволяет
+учитывать синтаксическую и семантическую
+структуру речи, но не учитывает
+прагматический смысл и интенции
+говорящего. Синтаксический подход
+зависит от качества и точности
+синтаксических анализаторов, которые
+могут допускать ошибки и неоднозначности.</font></font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Семантический
+подход построен на использовании
+семантических сетей, которые представляют
+смысловые отношения между словами и
+фразами в речи. Этот подход позволяет
+учитывать семантический и прагматический
+смысл речи, но требует большого объема
+знаний и сложных алгоритмов для построения
+и обработки семантических сетей. В
+добавок, этот подход может столкнуться
+с проблемами несоответствия и
+неопределенности смысла.</font></font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Прагматический
+подход организован на использовании
+прагматических правил, которые определяют
+цели и интенции говорящего в зависимости
+от ситуации и контекста. Этот подход
+позволяет учитывать прагматический
+смысл и интенции речи, но зависит от
+большого объема знаний и сложных
+алгоритмов для анализа и интерпретации
+прагматических правил. Помимо того,
+этот подход может столкнуться с проблемами
+неоднозначности и неясности интенций.</font></font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Таким
+образом, каждый из рассмотренных подходов
+к распознаванию речи имеет свои
+недостатки, которые могут снижать
+качество и эффективность распознавания
+речи. Поэтому необходимо разрабатывать
+и применять современные технологии и
+методы улучшения распознавания речи,
+которые будут учитывать все аспекты
+речи и обеспечивать высокую точность
+и скорость распознавания речи.</font></font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<br/>
+
+</p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0in"><font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>3.
+Технологи и методы улучшения распознавания
+речи</b></font></font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Искусственный
+интеллект (AI) - это наука и техника
+создания машин и программ, способных
+имитировать человеческий интеллект и
+выполнять разные задачи, связанные с
+речью, языком, зрением, знанием и т.д. AI
+может помочь улучшить распознавание
+речи, так как он может анализировать
+большие объемы данных, обучаться на
+примерах, адаптироваться к изменениям
+и решать сложные проблемы.</font></font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Нейронные
+сети (NN) - это математические модели,
+которые состоят из множества связанных
+узлов, называемых нейронами, которые
+имитируют работу биологических нейронов
+в мозге. NN могут обучаться на данных,
+выявлять закономерности, классифицировать
+объекты и генерировать новые данные.
+NN могут помочь улучшить распознавание
+речи, так как они могут моделировать
+разные уровни речи, такие как звук,
+слово, фраза, смысл и т.д., и обеспечивать
+высокую точность и скорость распознавания
+речи.</font></font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Трансфертное
+обучение (TL) - это метод обучения, который
+использует знания, полученные при
+решении одной задачи, для решения другой
+задачи. TL может помочь улучшить
+распознавание речи, так как он может
+переносить знания из одного домена или
+языка в другой, уменьшать необходимость
+в большом количестве данных, увеличивать
+обобщающую способность и снижать
+вычислительные затраты.</font></font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Аугментация
+данных (DA) - это метод увеличения количества
+и качества данных, используемых для
+обучения, путем применения разных
+преобразований, таких как добавление
+шума, изменение скорости, сдвиг, поворот
+и т.д. DA может помочь улучшить распознавание
+речи, так как он может увеличить
+разнообразие и представительность
+данных, уменьшить переобучение и повысить
+устойчивость к шуму и искажениям.</font></font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Языковые
+модели (LM) - это статистические или
+вероятностные модели, которые описывают
+вероятность появления слова или фразы
+в речи или тексте. LM могут помочь улучшить
+распознавание речи, так как они могут
+предсказывать следующее слово или фразу
+в речи, учитывать контекст и смысл речи,
+исправлять ошибки и неоднозначности в
+речи.</font></font></font></p>
+<p style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>4.
+Пример нового подхода к распознаванию
+речи с учетом выявленных недостатков
+существующих методов</b></font></font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Один
+из возможных примеров по устранению
+большинства найденных недостатков и
+придумыванию нового подхода к распознаванию
+речи может быть следующим.</font></font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Интегральный
+подход к распознаванию речи основан на
+том, что речь состоит из разных уровней,
+которые взаимодействуют и дополняют
+друг друга. Этот подход использует
+комбинацию акустического, лексического,
+синтаксического, семантического и
+прагматического анализа, которые
+выполняются параллельно и синхронно,
+и интегрируются в единый результат.
+Этот подход может быть реализован с
+помощью разных техник, таких как
+многоуровневые нейронные сети, гибридные
+модели, ансамблевые методы и т.д. Примером
+программы, которая может использовать
+интегральный подход, является [Bing],
+которая позволяет выполнять разные
+виды поиска и общения с помощью голоса.
+Преимуществом интегрального подхода
+является то, что он может учитывать все
+аспекты речи и обеспечивать высокую
+точность и скорость распознавания речи.
+Недостатком интегрального подхода
+является то, что он требует большого
+объема знаний и сложных алгоритмов для
+интеграции разных уровней анализа.</font></font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Пример
+как можно реализовать интегральный
+подход к распознаванию речи с помощью
+языка программирования.</font></font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Получить
+звуковой сигнал от пользователя и
+преобразовать его в цифровой формат,
+например, WAV или MP3.</font></font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Выполнить
+акустический анализ звукового сигнала
+с помощью нейронной сети, которая обучена
+на большом количестве речевых данных,
+и получить последовательность фонем,
+слогов или слов, которые соответствуют
+звукам в сигнале.</font></font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Выполнить
+лексический анализ последовательности
+фонем, слогов или слов с помощью конечного
+автомата, который содержит словарь и
+грамматику целевого языка, и получить
+последовательность лексем, которые
+соответствуют словам и фразам в речи.</font></font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Выполнить
+синтаксический анализ последовательности
+лексем с помощью синтаксического
+парсера, который использует
+контекстно-свободную грамматику или
+зависимостную грамматику целевого
+языка, и получить синтаксическое дерево,
+которое представляет структуру речи.</font></font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Выполнить
+семантический анализ синтаксического
+дерева с помощью семантического парсера,
+который использует семантическую сеть
+или онтологию целевого языка, и получить
+семантическую сеть, которая представляет
+смысл речи.</font></font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Выполнить
+прагматический анализ семантической
+сети с помощью прагматического
+анализатора, который использует
+прагматические правила или модели,
+основанные на ситуации и контексте, в
+которых происходит речь, и получить
+прагматическую модель, которая
+представляет интенции речи.</font></font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Выполнить
+интеграцию результатов разных уровней
+анализа с помощью интегратора, который
+использует ансамблевые методы или
+гибридные модели, основанные на
+вероятности, достоверности, согласованности
+и т.д., и получить интегральный результат,
+который представляет текст, который
+соответствует звуковому сигналу.</font></font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Вывести
+интегральный результат пользователю
+в виде текста или голоса.</font></font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Заключение</b></font></font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">В
+ходе работы был проведен анализ
+современных подходов, методов и технологий
+улучшения распознавания речи, а также
+выявлены их преимущества, недостатки
+и перспективы развития. Были рассмотрены
+следующие подходы к распознаванию речи:
+акустический, лексический, синтаксический,
+семантический и прагматический. Были
+изучены следующие технологии и методы
+улучшения распознавания речи: искусственный
+интеллект, нейронные сети, трансфертное
+обучение, аугментация данных, языковые
+модели и т.д. Были приведены примеры
+различных программ и систем, которые
+используют эти технологии и методы,
+такие как Dragon NaturallySpeaking, Google Translate, Siri и
+Bing. Был предложен новый подход к
+распознаванию речи - интегральный,
+который использует комбинацию разных
+уровней анализа и интегрирует их в
+единый результат.</font></font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Распознавание
+речи является одним из важнейших
+направлений развития искусственного
+интеллекта и имеет большой потенциал
+для применения в различных сферах жизни
+и деятельности человека.</font></font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Эта
+сфера требует учета всех аспектов речи,
+таких как звук, слово, фраза, смысл и
+интенция, а также ситуации и контекста,
+в которых происходит речь.</font></font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Распознавание
+может быть улучшено с помощью современных
+технологий и методов, таких как
+искусственный интеллект, нейронные
+сети, трансфертное обучение, аугментация
+данных, языковые модели и т.д., которые
+позволяют повысить точность и скорость
+распознавания речи, а также адаптироваться
+к разным условиям и потребностям
+пользователей.</font></font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font color="#111111"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Распознавание
+речи может быть реализовано с помощью
+разных подходов, которые имеют свои
+преимущества и недостатки, и которые
+могут быть комбинированы и интегрированы
+в единый подход, который будет учитывать
+все уровни речи и обеспечивать оптимальный
+результат.</font></font></font></p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0in"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Литература
+</b></font></font>
+</p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">1.
+Бахтеев О.Ю., Стрижов В.В. Оптимизация
+параметров нейросетевых моделей
+распознавания речи // Информатика и ее
+применения. 2019. Т. 13. № 2. С. 62-71.</font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">2.
+Горбунова Е.А., Лобанов Б.М. Анализ методов
+улучшения качества распознавания речи
+в условиях шума // Известия Российской
+академии наук. Теория и системы управления.
+2018. № 4. С. 97-107.</font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">3.
+Королев Ю.А., Чистяков А.А., Сизов С.А.
+Распознавание речи с использованием
+глубоких сверточных нейронных сетей
+// Известия высших учебных заведений.
+Радиоэлектроника. 2017. Т. 60. № 3. С. 256-265.  </font></font>
+</p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">4.
+Семенов А.В., Курочкин А.А., Ляшук В.Л.
+Методы улучшения качества распознавания
+речи на основе адаптации акустической
+модели // Вестник компьютерных и
+информационных технологий. 2016. № 12. С.
+3-11.</font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<br/>
+
+</p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><i><b>Баляба
+Я.В., Рычка О.В. Улучшения распознавания
+речи  (speech to text).</b></i></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+В работе изучены технологии и подходы
+для распознавания речи. Выявлены
+недостатки и преимущества этих подходов.
+Приведены примеры программ и систем,
+которые используют эти технологии и
+методы. Также предложен новый подход к
+распознаванию речи - интегральный,
+который использует комбинацию разных
+уровней анализа и интегрирует их в
+единый результат. В работе сделаны
+выводы и рекомендации по улучшению
+распознавания речи в будущем.</font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><i><b>Ключевые
+слова</b></i></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">:
+распознавание речи, подходы, искусственный
+интеллект, нейронные сети, интегральный
+подход к распознаванию речи.</font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="en-US"><i><b>Balyaba
+Y.V., Rychka O.V. Speech recognition improvements (speech to text)</b></i></span></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">.
+The paper studies technologies and approaches for speech recognition.
+The disadvantages and advantages of these approaches are revealed.
+Examples of programs and systems that use these technologies and
+methods are given. A new approach to speech recognition is also
+proposed - an integral approach that uses a combination of different
+levels of analysis and integrates them into a single result. The
+paper draws conclusions and recommendations for improving speech
+recognition in the future.</span></font></font></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.49in; margin-bottom: 0in">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="en-US"><i><b>Keywords</b></i></span></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">:
+speech recognition, approaches, artificial intelligence, neural
+networks, integral approach to speech recognition.</span></font></font></p>
+</body>
+</html>

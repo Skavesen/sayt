@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 3</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:16px;font-family:CTEJAQ+NimbusRomNo9L-Regu;color:#000000;}
+	.ft01{font-size:11px;font-family:CTEJAQ+NimbusRomNo9L-Regu;color:#000000;}
+	.ft02{font-size:16px;font-family:ANWGXN+CMSY10;color:#000000;}
+	.ft03{font-size:16px;font-family:TSFJKZ+NimbusRomNo9L-ReguItal;color:#000000;}
+	.ft04{font-size:17px;font-family:OTIUZI+NimbusRomNo9L-Medi;color:#000000;}
+	.ft05{font-size:16px;font-family:OTIUZI+NimbusRomNo9L-Medi;color:#000000;}
+	.ft06{font-size:16px;font-family:FZXAUG+CMR10;color:#000000;}
+	.ft07{font-size:8px;font-family:CTEJAQ+NimbusRomNo9L-Regu;color:#000000;}
+	.ft08{font-size:13px;font-family:KSSHHJ+NimbusMonL-Regu;color:#000000;}
+	.ft09{font-size:13px;font-family:CTEJAQ+NimbusRomNo9L-Regu;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page3-div" style="position:relative;width:892px;height:1262px;">
+<img width="892" height="1262" src="E17-2076003.png" alt="background image"/>
+<p style="position:absolute;top:95px;left:108px;white-space:nowrap" class="ft00">translations&#160;with&#160;NLTK&#160;(Bird&#160;et&#160;al.,&#160;2009).</p>
+<p style="position:absolute;top:93px;left:387px;white-space:nowrap" class="ft01">5</p>
+<p style="position:absolute;top:95px;left:399px;white-space:nowrap" class="ft00">Since</p>
+<p style="position:absolute;top:115px;left:108px;white-space:nowrap" class="ft00">UTD&#160;is&#160;better&#160;at&#160;matching&#160;patterns&#160;from&#160;the&#160;same</p>
+<p style="position:absolute;top:136px;left:108px;white-space:nowrap" class="ft00">speaker&#160;(</p>
+<p style="position:absolute;top:136px;left:170px;white-space:nowrap" class="ft02">§</p>
+<p style="position:absolute;top:136px;left:177px;white-space:nowrap" class="ft00">4.2),&#160;we&#160;created&#160;two&#160;types&#160;of&#160;90/10%</p>
+<p style="position:absolute;top:156px;left:108px;white-space:nowrap" class="ft00">train/test&#160;split:&#160;at&#160;the</p>
+<p style="position:absolute;top:156px;left:245px;white-space:nowrap" class="ft03">call&#160;level</p>
+<p style="position:absolute;top:156px;left:308px;white-space:nowrap" class="ft00">and&#160;at&#160;the</p>
+<p style="position:absolute;top:156px;left:375px;white-space:nowrap" class="ft03">utterance</p>
+<p style="position:absolute;top:176px;left:108px;white-space:nowrap" class="ft03">level</p>
+<p style="position:absolute;top:176px;left:139px;white-space:nowrap" class="ft00">.&#160;For&#160;the&#160;latter,&#160;90%&#160;of&#160;the&#160;utterances&#160;are&#160;ran-</p>
+<p style="position:absolute;top:197px;left:108px;white-space:nowrap" class="ft00">domly&#160;chosen&#160;for&#160;the&#160;training&#160;set&#160;(independent&#160;of</p>
+<p style="position:absolute;top:217px;left:107px;white-space:nowrap" class="ft00">which&#160;call&#160;they&#160;occur&#160;in),&#160;and&#160;the&#160;rest&#160;go&#160;in&#160;the&#160;test</p>
+<p style="position:absolute;top:237px;left:108px;white-space:nowrap" class="ft00">set.&#160;Hence&#160;at&#160;the&#160;utterance&#160;level,&#160;but&#160;not&#160;the&#160;call</p>
+<p style="position:absolute;top:258px;left:108px;white-space:nowrap" class="ft00">level,&#160;some&#160;speakers&#160;are&#160;included&#160;in&#160;both&#160;training</p>
+<p style="position:absolute;top:278px;left:108px;white-space:nowrap" class="ft00">and&#160;test&#160;data.&#160;Although&#160;the&#160;utterance-level&#160;split&#160;is</p>
+<p style="position:absolute;top:298px;left:108px;white-space:nowrap" class="ft00">optimistic,&#160;it&#160;allows&#160;us&#160;to&#160;investigate&#160;how&#160;multiple</p>
+<p style="position:absolute;top:319px;left:108px;white-space:nowrap" class="ft00">speakers&#160;affect&#160;system&#160;performance.&#160;In&#160;either&#160;case,</p>
+<p style="position:absolute;top:339px;left:108px;white-space:nowrap" class="ft00">the&#160;oracle&#160;has&#160;about&#160;38k&#160;Spanish&#160;tokens&#160;to&#160;train&#160;on.</p>
+<p style="position:absolute;top:374px;left:108px;white-space:nowrap" class="ft04">4&#160;Analysis&#160;of&#160;challenges&#160;from&#160;UTD</p>
+<p style="position:absolute;top:408px;left:108px;white-space:nowrap" class="ft00">Our&#160;system&#160;relies&#160;on&#160;the&#160;pseudotext&#160;produced&#160;by</p>
+<p style="position:absolute;top:428px;left:108px;white-space:nowrap" class="ft00">ZRTools&#160;(the&#160;only&#160;freely&#160;available&#160;UTD&#160;system&#160;we</p>
+<p style="position:absolute;top:448px;left:108px;white-space:nowrap" class="ft00">are&#160;aware&#160;of),&#160;which&#160;presents&#160;several&#160;challenges</p>
+<p style="position:absolute;top:469px;left:108px;white-space:nowrap" class="ft00">for&#160;MT.&#160;We&#160;used&#160;the&#160;default&#160;ZRTools&#160;parameters,</p>
+<p style="position:absolute;top:489px;left:108px;white-space:nowrap" class="ft00">and&#160;it&#160;might&#160;be&#160;possible&#160;to&#160;tune&#160;them&#160;to&#160;our&#160;task,</p>
+<p style="position:absolute;top:509px;left:108px;white-space:nowrap" class="ft00">but&#160;we&#160;leave&#160;this&#160;to&#160;future&#160;work.</p>
+<p style="position:absolute;top:544px;left:108px;white-space:nowrap" class="ft05">4.1&#160;Assigning&#160;wrong&#160;words&#160;to&#160;a&#160;cluster</p>
+<p style="position:absolute;top:571px;left:108px;white-space:nowrap" class="ft00">Since&#160;UTD&#160;is&#160;unsupervised,&#160;the&#160;discovered&#160;clusters</p>
+<p style="position:absolute;top:591px;left:108px;white-space:nowrap" class="ft00">are&#160;noisy.&#160;Fig.&#160;1&#160;shows&#160;an&#160;example&#160;of&#160;an&#160;incorrect</p>
+<p style="position:absolute;top:612px;left:108px;white-space:nowrap" class="ft00">match&#160;between&#160;the&#160;acoustically&#160;similar&#160;“qu´e&#160;tal</p>
+<p style="position:absolute;top:632px;left:108px;white-space:nowrap" class="ft00">vas&#160;con”&#160;and&#160;“te&#160;trabajo&#160;y”&#160;in&#160;utterances&#160;B&#160;and&#160;C,</p>
+<p style="position:absolute;top:652px;left:108px;white-space:nowrap" class="ft00">leading&#160;to&#160;a&#160;common&#160;assignment&#160;to&#160;c2.&#160;Such&#160;incon-</p>
+<p style="position:absolute;top:673px;left:108px;white-space:nowrap" class="ft00">sistencies&#160;in&#160;turn&#160;affect&#160;the&#160;translation&#160;distribution</p>
+<p style="position:absolute;top:693px;left:108px;white-space:nowrap" class="ft00">conditioned&#160;on&#160;c2.</p>
+<p style="position:absolute;top:713px;left:124px;white-space:nowrap" class="ft00">Many&#160;of&#160;these&#160;errors&#160;are&#160;due&#160;to&#160;cross-speaker</p>
+<p style="position:absolute;top:734px;left:108px;white-space:nowrap" class="ft00">matches,&#160;which&#160;are&#160;known&#160;to&#160;be&#160;more&#160;challenging</p>
+<p style="position:absolute;top:754px;left:108px;white-space:nowrap" class="ft00">for&#160;UTD&#160;(Carlin&#160;et&#160;al.,&#160;2011;&#160;Kamper&#160;et&#160;al.,&#160;2015;</p>
+<p style="position:absolute;top:774px;left:108px;white-space:nowrap" class="ft00">Bansal&#160;et&#160;al.,&#160;2017).&#160;Most&#160;matches&#160;in&#160;our&#160;corpus</p>
+<p style="position:absolute;top:795px;left:108px;white-space:nowrap" class="ft00">are&#160;across&#160;calls,&#160;yet&#160;these&#160;are&#160;also&#160;the&#160;least&#160;accu-</p>
+<p style="position:absolute;top:815px;left:108px;white-space:nowrap" class="ft00">rate&#160;(Table&#160;1).&#160;Within-utterance&#160;matches,&#160;which</p>
+<p style="position:absolute;top:835px;left:108px;white-space:nowrap" class="ft00">are&#160;always&#160;from&#160;the&#160;same&#160;speaker,&#160;are&#160;the&#160;most</p>
+<p style="position:absolute;top:856px;left:108px;white-space:nowrap" class="ft00">reliable,&#160;but&#160;make&#160;up&#160;the&#160;smallest&#160;proportion&#160;of</p>
+<p style="position:absolute;top:876px;left:108px;white-space:nowrap" class="ft00">the&#160;discovered&#160;pairs.&#160;Within-call&#160;matches&#160;fall&#160;in</p>
+<p style="position:absolute;top:896px;left:108px;white-space:nowrap" class="ft00">between.&#160;Overall,&#160;average&#160;cluster&#160;purity&#160;is&#160;only</p>
+<p style="position:absolute;top:917px;left:108px;white-space:nowrap" class="ft06">34</p>
+<p style="position:absolute;top:917px;left:124px;white-space:nowrap" class="ft00">%,&#160;meaning&#160;that</p>
+<p style="position:absolute;top:917px;left:236px;white-space:nowrap" class="ft06">66</p>
+<p style="position:absolute;top:917px;left:252px;white-space:nowrap" class="ft00">%&#160;of&#160;discovered&#160;patterns&#160;do</p>
+<p style="position:absolute;top:937px;left:108px;white-space:nowrap" class="ft00">not&#160;match&#160;the&#160;most&#160;frequent&#160;type&#160;in&#160;their&#160;cluster.</p>
+<p style="position:absolute;top:972px;left:108px;white-space:nowrap" class="ft05">4.2&#160;Splitting&#160;words&#160;across&#160;different&#160;clusters</p>
+<p style="position:absolute;top:998px;left:107px;white-space:nowrap" class="ft00">Although&#160;most&#160;UTD&#160;matches&#160;are&#160;across&#160;speakers,</p>
+<p style="position:absolute;top:1019px;left:108px;white-space:nowrap" class="ft00">recall&#160;of&#160;cross-speaker&#160;matches&#160;is&#160;lower&#160;than&#160;for</p>
+<p style="position:absolute;top:1039px;left:108px;white-space:nowrap" class="ft00">same-speaker&#160;matches.&#160;As&#160;a&#160;result,&#160;the&#160;same&#160;word</p>
+<p style="position:absolute;top:1059px;left:108px;white-space:nowrap" class="ft00">from&#160;different&#160;speakers&#160;often&#160;appears&#160;in&#160;multiple</p>
+<p style="position:absolute;top:1080px;left:108px;white-space:nowrap" class="ft00">clusters,&#160;preventing&#160;the&#160;model&#160;from&#160;learning&#160;good</p>
+<p style="position:absolute;top:1100px;left:108px;white-space:nowrap" class="ft00">translations.&#160;ZRTools&#160;discovers&#160;15,089&#160;clusters&#160;in</p>
+<p style="position:absolute;top:1130px;left:127px;white-space:nowrap" class="ft07">5</p>
+<p style="position:absolute;top:1132px;left:132px;white-space:nowrap" class="ft08">http://www.nltk.org/</p>
+<p style="position:absolute;top:93px;left:554px;white-space:nowrap" class="ft05">utterance</p>
+<p style="position:absolute;top:93px;left:666px;white-space:nowrap" class="ft05">call</p>
+<p style="position:absolute;top:94px;left:732px;white-space:nowrap" class="ft05">corpus</p>
+<p style="position:absolute;top:114px;left:470px;white-space:nowrap" class="ft00">Matches</p>
+<p style="position:absolute;top:114px;left:576px;white-space:nowrap" class="ft00">2%</p>
+<p style="position:absolute;top:114px;left:663px;white-space:nowrap" class="ft00">17%</p>
+<p style="position:absolute;top:114px;left:741px;white-space:nowrap" class="ft00">81%</p>
+<p style="position:absolute;top:135px;left:470px;white-space:nowrap" class="ft00">Accuracy</p>
+<p style="position:absolute;top:135px;left:572px;white-space:nowrap" class="ft00">78%</p>
+<p style="position:absolute;top:135px;left:663px;white-space:nowrap" class="ft00">53%</p>
+<p style="position:absolute;top:135px;left:745px;white-space:nowrap" class="ft00">8%</p>
+<p style="position:absolute;top:177px;left:460px;white-space:nowrap" class="ft00">Table&#160;1:&#160;UTD&#160;matches&#160;within&#160;utterances,&#160;within</p>
+<p style="position:absolute;top:197px;left:461px;white-space:nowrap" class="ft00">calls&#160;and&#160;within&#160;the&#160;corpus.&#160;Matches&#160;within&#160;an</p>
+<p style="position:absolute;top:217px;left:461px;white-space:nowrap" class="ft00">utterance&#160;or&#160;call&#160;are&#160;usually&#160;from&#160;the&#160;same&#160;speaker.</p>
+<p style="position:absolute;top:254px;left:575px;white-space:nowrap" class="ft05">utterance&#160;split</p>
+<p style="position:absolute;top:254px;left:715px;white-space:nowrap" class="ft05">call&#160;split</p>
+<p style="position:absolute;top:275px;left:470px;white-space:nowrap" class="ft00">Oracle</p>
+<p style="position:absolute;top:275px;left:591px;white-space:nowrap" class="ft00">420&#160;(10%)</p>
+<p style="position:absolute;top:275px;left:710px;white-space:nowrap" class="ft00">719&#160;(17%)</p>
+<p style="position:absolute;top:295px;left:470px;white-space:nowrap" class="ft00">Pseudotext</p>
+<p style="position:absolute;top:295px;left:591px;white-space:nowrap" class="ft00">601&#160;(29%)</p>
+<p style="position:absolute;top:295px;left:710px;white-space:nowrap" class="ft00">892&#160;(44%)</p>
+<p style="position:absolute;top:337px;left:460px;white-space:nowrap" class="ft00">Table&#160;2:&#160;Number&#160;(percent)&#160;of&#160;out-of-vocabulary</p>
+<p style="position:absolute;top:357px;left:460px;white-space:nowrap" class="ft00">(OOV)&#160;word&#160;tokens&#160;or&#160;pseudoterms&#160;in&#160;the&#160;test&#160;data</p>
+<p style="position:absolute;top:378px;left:461px;white-space:nowrap" class="ft00">for&#160;different&#160;experimental&#160;conditions.</p>
+<p style="position:absolute;top:428px;left:461px;white-space:nowrap" class="ft00">our&#160;data,&#160;though&#160;there&#160;are&#160;only&#160;10,674&#160;word&#160;types.</p>
+<p style="position:absolute;top:448px;left:461px;white-space:nowrap" class="ft00">Only&#160;1,614&#160;of&#160;the&#160;clusters&#160;map&#160;one-to-one&#160;to&#160;a</p>
+<p style="position:absolute;top:468px;left:461px;white-space:nowrap" class="ft00">unique&#160;word&#160;type,&#160;while&#160;a&#160;many-to-one&#160;mapping</p>
+<p style="position:absolute;top:489px;left:461px;white-space:nowrap" class="ft00">of&#160;the&#160;rest&#160;covers&#160;only&#160;1,819&#160;gold&#160;types&#160;(leaving</p>
+<p style="position:absolute;top:509px;left:461px;white-space:nowrap" class="ft00">7,241&#160;gold&#160;types&#160;with&#160;no&#160;corresponding&#160;cluster).</p>
+<p style="position:absolute;top:529px;left:477px;white-space:nowrap" class="ft00">Fragmentation&#160;of&#160;words&#160;across&#160;clusters&#160;renders</p>
+<p style="position:absolute;top:550px;left:461px;white-space:nowrap" class="ft00">pseudoterms&#160;impossible&#160;to&#160;translate&#160;when&#160;they&#160;ap-</p>
+<p style="position:absolute;top:570px;left:461px;white-space:nowrap" class="ft00">pear&#160;only&#160;in&#160;test&#160;and&#160;not&#160;in&#160;training.&#160;Table&#160;2&#160;shows</p>
+<p style="position:absolute;top:590px;left:461px;white-space:nowrap" class="ft00">that&#160;these</p>
+<p style="position:absolute;top:590px;left:537px;white-space:nowrap" class="ft03">pseudotext&#160;out-of-vocabulary&#160;(OOV)</p>
+<p style="position:absolute;top:611px;left:460px;white-space:nowrap" class="ft00">words&#160;are&#160;frequent,&#160;especially&#160;in&#160;the&#160;call-level&#160;split.</p>
+<p style="position:absolute;top:631px;left:460px;white-space:nowrap" class="ft00">This&#160;reflects&#160;differences&#160;in&#160;acoustic&#160;patterns&#160;of&#160;dif-</p>
+<p style="position:absolute;top:651px;left:461px;white-space:nowrap" class="ft00">ferent&#160;speakers,&#160;but&#160;also&#160;in&#160;their&#160;vocabulary&#160;—&#160;even</p>
+<p style="position:absolute;top:672px;left:461px;white-space:nowrap" class="ft00">the&#160;oracle&#160;OOV&#160;rate&#160;is&#160;higher&#160;in&#160;the&#160;call-level&#160;split.</p>
+<p style="position:absolute;top:706px;left:461px;white-space:nowrap" class="ft05">4.3&#160;UTD&#160;is&#160;sparse,&#160;giving&#160;low&#160;coverage</p>
+<p style="position:absolute;top:732px;left:461px;white-space:nowrap" class="ft00">UTD&#160;is&#160;most&#160;reliable&#160;on&#160;long&#160;and&#160;frequently-</p>
+<p style="position:absolute;top:753px;left:461px;white-space:nowrap" class="ft00">repeated&#160;patterns,&#160;so&#160;many&#160;spoken&#160;words&#160;are&#160;not</p>
+<p style="position:absolute;top:773px;left:461px;white-space:nowrap" class="ft00">represented&#160;in&#160;the&#160;pseudotext,&#160;as&#160;in&#160;Fig.&#160;1.&#160;We</p>
+<p style="position:absolute;top:793px;left:461px;white-space:nowrap" class="ft00">found&#160;that&#160;the&#160;patterns&#160;discovered&#160;by&#160;ZRTools</p>
+<p style="position:absolute;top:814px;left:461px;white-space:nowrap" class="ft00">match&#160;only&#160;28%&#160;of&#160;the&#160;audio.&#160;This&#160;low&#160;cover-</p>
+<p style="position:absolute;top:834px;left:461px;white-space:nowrap" class="ft00">age&#160;reduces&#160;training&#160;data&#160;size,&#160;affects&#160;alignment</p>
+<p style="position:absolute;top:854px;left:461px;white-space:nowrap" class="ft00">quality,&#160;and&#160;adversely&#160;affects&#160;translation,&#160;which&#160;is</p>
+<p style="position:absolute;top:874px;left:461px;white-space:nowrap" class="ft00">only&#160;possible&#160;when&#160;pseudoterms&#160;are&#160;present.&#160;For</p>
+<p style="position:absolute;top:895px;left:461px;white-space:nowrap" class="ft00">almost&#160;half&#160;the&#160;utterances,&#160;UTD&#160;fails&#160;to&#160;produce</p>
+<p style="position:absolute;top:915px;left:461px;white-space:nowrap" class="ft00">any&#160;pseudoterm&#160;at&#160;all.</p>
+<p style="position:absolute;top:950px;left:461px;white-space:nowrap" class="ft04">5&#160;Speech&#160;translation&#160;experiments</p>
+<p style="position:absolute;top:983px;left:460px;white-space:nowrap" class="ft00">We&#160;evaluate&#160;our&#160;system&#160;by&#160;comparing&#160;its&#160;output</p>
+<p style="position:absolute;top:1003px;left:461px;white-space:nowrap" class="ft00">to&#160;the&#160;English&#160;translations&#160;on&#160;the&#160;test&#160;data.&#160;Since</p>
+<p style="position:absolute;top:1024px;left:461px;white-space:nowrap" class="ft00">it&#160;translates&#160;only&#160;a&#160;handful&#160;of&#160;words&#160;in&#160;each&#160;sen-</p>
+<p style="position:absolute;top:1044px;left:461px;white-space:nowrap" class="ft00">tence,&#160;BLEU,&#160;which&#160;measures&#160;accuracy&#160;of&#160;word</p>
+<p style="position:absolute;top:1064px;left:461px;white-space:nowrap" class="ft00">sequences,&#160;is&#160;an&#160;inappropriate&#160;measure&#160;of&#160;accu-</p>
+<p style="position:absolute;top:1085px;left:461px;white-space:nowrap" class="ft00">racy.</p>
+<p style="position:absolute;top:1083px;left:491px;white-space:nowrap" class="ft01">6</p>
+<p style="position:absolute;top:1085px;left:503px;white-space:nowrap" class="ft00">Instead&#160;we&#160;compute&#160;precision&#160;and&#160;recall&#160;over</p>
+<p style="position:absolute;top:1115px;left:480px;white-space:nowrap" class="ft07">6</p>
+<p style="position:absolute;top:1117px;left:485px;white-space:nowrap" class="ft09">BLEU&#160;scores&#160;for&#160;supervised&#160;speech&#160;translation&#160;systems</p>
+<p style="position:absolute;top:1132px;left:461px;white-space:nowrap" class="ft09">trained&#160;on&#160;our&#160;data&#160;can&#160;be&#160;found&#160;in&#160;Kumar&#160;et&#160;al.&#160;(2014).</p>
+<p style="position:absolute;top:1180px;left:436px;white-space:nowrap" class="ft00">476</p>
+</div>
+</body>
+</html>
