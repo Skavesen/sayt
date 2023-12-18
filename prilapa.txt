@@ -1,0 +1,9 @@
+ru
+Приляпа Яна Витальевна
+Исследование методов и программных средств распознавания аудиофайлов 
+Программная инженерия
+
+en
+Prilapa Yana Vitalievna
+Research of audio file recognition methods and software
+Software Engineering
