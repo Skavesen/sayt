@@ -1,4 +1,4 @@
-/* -------------------- Цветовая схема - БЕЖЕВЫЙ -------------------------- */
+/* -------------------- пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅ -------------------------- */
 
 
 #header h1 { color: #FFEC8B; font: bold 20pt/14pt century gothic, serif; }
@@ -78,8 +78,6 @@ table#resume                  { font: 14pt century gothic, serif;  border-collap
 table#resume td.c1            { font-weight: bold; }
 table#resume tr.odd           { background: none; }  
 table#resume tr.even          { background: none; }
-table#resume tr.odd:hover,
-table#resume tr.even:hover    { background: red;}  
 
 table.search                  { width: 90%; }
 table.search                  { font: 12pt Garamond, serif;}
